@@ -20,8 +20,6 @@ const Pelicula = ({ pelicula, generos }) => {
 
     const generos_peli = genre_ids.map( value => generos.filter( ( item ) => item.id === value  ) );
 
-    console.log("generos " , generos_peli)
-
     return (
         <Row>
             <Col >
@@ -38,7 +36,6 @@ const Pelicula = ({ pelicula, generos }) => {
 
                 <Row >
                     <Col span={6} style={{ padding: '1%' }}>
-
                         <Row>
                             <Image
                                 className="pelicula__img"
@@ -47,24 +44,26 @@ const Pelicula = ({ pelicula, generos }) => {
                         </Row>
 
                     </Col>
-
                     <Col span={18} className='pelicula__container_detail' >
 
                         <Row className='pelicula__detail_container_arriba' >
                             <Col>
-                                <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'mas' }}>
+                                <Paragraph copyable={{text: overview}} ellipsis={{ rows: 2, expandable: true, symbol: 'mas' }}>
                                     {overview}
                                 </Paragraph>
 
                             </Col>
                         </Row>
 
+                        <Row>
+                            <Col>
+                            {generos_peli.map( item =>  <Tag key={item[0].name} color="#55acee"> {item[0].name} </Tag>)}
+                            </Col>
+                        </Row>
                         <Row align="bottom" >
                             
                             <Col>
-                            
-                            {generos_peli.map( item =>  <Tag color="#55acee"> {item[0].name} </Tag>)}
-                               <Title level={3} >{castFecha(release_date)}</Title>
+                               <Title level={3} >Fecha de estreno: {castFecha(release_date)}</Title>
                             </Col>
 
                         </Row>

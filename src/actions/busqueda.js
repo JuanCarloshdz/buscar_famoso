@@ -1,4 +1,4 @@
-import { BUSCA_ACTOR, BUSCA_PELICULAS, OBTENER_GENEROS, REINICIA_BUSCADOR } from "../constants/actionTypes";
+import { BUSCA_ACTOR, BUSCA_PELICULAS, IS_LISTADO, OBTENER_GENEROS, REINICIA_BUSCADOR } from "../constants/actionTypes";
 import { NOMADA_API_KEY, THE_MOVIE_API_KEY } from "../constants/api_key";
 
 export const getActor = (file) => async (dispatch) => {
@@ -74,4 +74,8 @@ export const getGeneros = () => async (dispatch) => {
 }
 export const reinicarBusqueda = () => async (dispatch) =>{
     dispatch({type: REINICIA_BUSCADOR})
+}
+
+export const setListado= (listado) => async (dispatch) =>{
+    dispatch({type:IS_LISTADO, payload: listado})
 }

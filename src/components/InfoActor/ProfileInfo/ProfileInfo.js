@@ -13,7 +13,7 @@ const ProfileInfo = ({ profile_path, actorName, gender, popularity }) => {
 
 
             <Row align="top">
-                <Col span={24} style={{padding:'10%'}}>
+                <Col span={24} style={{ padding: '10%' }}>
                     <Image
                         className="img_perfil"
                         width='100%'
@@ -21,10 +21,24 @@ const ProfileInfo = ({ profile_path, actorName, gender, popularity }) => {
                 </Col>
             </Row>
 
+            <Row justify='center'>
+                <Col span={24}>
+                    <Title className='container__text_center' >{actorName}</Title>
+                </Col>
+            </Row>
 
-            <Title className='container__text_center' >{actorName}</Title>
-            <Title className='container__text_center' level={2} >{gender === 2 ? 'Hombre' : 'Mujer'}</Title>
-            <Title className='container__text_center' >{popularity}</Title>
+            <Row justify='center' >
+                <Col>
+                    <Title className='container__text_center' level={2} >{gender === 2 ? 'Hombre' : 'Mujer'}</Title>
+                </Col>
+            </Row>
+
+            <Row justify='center' >
+                <Col>
+                    <Title className='container__text_center' level={3} >Popularidad: {popularity}</Title>
+                </Col>
+            </Row>
+
 
         </Col>
     )
